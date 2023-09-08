@@ -1,25 +1,24 @@
-def is_palindrome(s):
-    return s == s[::-1]
-
-
 def can_become_palindrome(s):
-    if is_palindrome(s):
-        return True
+    left, right = 0, len(s) - 1
 
-    # Проверяем подстроки s, начиная с первого символа и до последнего, затем до предпоследнего и так далее
-    for i in range(len(s) - 1, 2, -1):
-        sub_s = s[:i]
-        if s[i] != "a":
-            break
-        if is_palindrome(sub_s):
-            return True
+    while left <= right:
+        if s[left] == 'a' and s[right] != 'a':
+            return False
+        if s[right] == 'a' and s[left] != 'a':
+            right -= 1
+            continue
+        if s[left] == 'a' and s[right] == 'a':
+            left += 1
+            right -= 1
+            continue
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
 
-    return False
-
+    return True
 
 s = input()
-# s = "acbcaa"
-
 if can_become_palindrome(s):
     print("Yes")
 else:
