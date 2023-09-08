@@ -4,6 +4,7 @@ def is_honestly_even(num):
             return False
     return True
 
+
 n = int(input())
 count = 0
 

@@ -18,6 +18,7 @@ def can_become_palindrome(s):
 
     return True
 
+
 s = input()
 if can_become_palindrome(s):
     print("Yes")
