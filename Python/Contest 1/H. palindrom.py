@@ -1,4 +1,4 @@
-def can_become_palindrome(s):
+def can_become_palindrome(s: str) -> bool:
     left, right = 0, len(s) - 1
 
     while left <= right:

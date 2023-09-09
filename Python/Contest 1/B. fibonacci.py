@@ -1,11 +1,11 @@
-def matrix_mult(a, b):
+def matrix_mult(a: tuple, b: tuple) -> tuple:
     return (
         a[0] * b[0] + a[1] * b[2], a[0] * b[1] + a[1] * b[3],
         a[2] * b[0] + a[3] * b[2], a[2] * b[1] + a[3] * b[3]
     )
 
 
-def matrix_pow(matrix, n):
+def matrix_pow(matrix: tuple, n: int) -> tuple:
     result = (1, 0, 0, 1)
     while n:
         if n % 2:
@@ -15,7 +15,7 @@ def matrix_pow(matrix, n):
     return result
 
 
-def fast_fibonacci(n):
+def fast_fibonacci(n: int) -> int:
     if n == 0:
         return 0
     result_matrix = matrix_pow((1, 1, 1, 0), n - 1)

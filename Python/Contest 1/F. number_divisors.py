@@ -1,4 +1,4 @@
-def count_divisors(n):
+def count_divisors(n: int) -> int:
     count = 0
     i = 1
     while i * i <= n:

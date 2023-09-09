@@ -1,4 +1,4 @@
-def decompress(s):
+def decompress(s: str) -> str:
     decompressed = []
     i = 0
     while i < len(s):

@@ -1,4 +1,4 @@
-def is_honestly_even(num):
+def is_honestly_even(num: int) -> bool:
     for digit in str(num):
         if int(digit) % 2 != 0:
             return False

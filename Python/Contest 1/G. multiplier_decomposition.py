@@ -1,4 +1,4 @@
-def prime_factors(n):
+def prime_factors(n: int):
     while n % 2 == 0:
         print(2, end=' ')
         n //= 2

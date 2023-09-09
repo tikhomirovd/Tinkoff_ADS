@@ -1,4 +1,4 @@
-def divisibility(a, b):
+def divisibility(a: int, b: int) -> int:
     result = (a % b) * (b % a) + 1
     return result
 
