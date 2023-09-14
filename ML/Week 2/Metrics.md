@@ -55,20 +55,20 @@ a = model.predict(X2)
 k отвечает за "Сложность модели"
 
 ### Минутка кода 
-> from sklearn.neighbors import KNeighborsClassifier
-> model = KneighborsClassifier(  
->       n_neighbors=5, # число соседей  
->       algorithm='auto',  
->       leaf_size=30,  
->       wights='uniform',  
->       metric='minkowski',  
->       p=2,  
->       metric_params=None)  
-> model.fit(X, y)  
-> a = model.predict(X2)  
-> p = model.predict_proba(X2)[:, 1]  
-> 
-> 
+```python
+from sklearn.neighbors import KNeighborsClassifier
+model = KneighborsClassifier(  
+        n_neighbors=5, # число соседей  
+        algorithm='auto',  
+        leaf_size=30,  
+        wights='uniform',  
+        metric='minkowski',  
+        p=2,  
+        metric_params=None)  
+model.fit(X, y)  
+a = model.predict(X2)  
+p = model.predict_proba(X2)[:, 1]  
+```
 
 ## Регрессия
 
@@ -158,3 +158,23 @@ $\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
 1. Сглаживание сигналов
 2. "Многомерные" усреднения
 ![pril_NW.png](pril_NW.png)
+
+## Метрики
+Расстояние (метрика) на $X$ -ф функция $\ro (x, z): X \times X \rightarrow \mathbb(R)$
+1. $\ro(x, z) \geq 0$
+2. $\ro(x,z) = 0 \leftrightarrow x=z$
+3. $\ro(x, z) = \ro(z, x)
+4. $\ro(x, z) + \ro(z, v) \geq \ro(x, v)
+
+Примеры:
+- Минковского $L_p$
+  - Евклидова $L_2$ $\sqrt{sum_{i=1}^n (x_i - z_i)^2}$
+  - Манхэттэнская 
+- Махаланобиса
+- Canberra distance
+- Хэмминга
+- Косинусное 
+- Расстояние Даккара 
+
+$$(|x_1 - z_1|^p + |x_2 = z_2|^p)^{\frac{1}{p}}$$
+![metrics_l.png](metrics_l.png)
