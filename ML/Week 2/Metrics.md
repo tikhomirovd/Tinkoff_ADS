@@ -152,4 +152,9 @@ $$ \frac{\sum^k_{t=1} w_t y (x_y}{\sum^k_{t=1} w_t}$$
 
 
 **Смысл:** Ответ алгоритма $\rightarrow$ решение оптимизационной задачи 
-$\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a
+$\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
+
+## Приложения регрессии Надарая-Ватсона
+1. Сглаживание сигналов
+2. "Многомерные" усреднения
+![pril_NW.png](pril_NW.png)
