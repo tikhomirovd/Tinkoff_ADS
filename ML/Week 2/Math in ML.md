@@ -16,7 +16,7 @@
 **Простота модели** - VC размерность, ...
 
 ## Футбольный оракул
-![football_oracle.png](football_oracle.png)
+![football_oracle.png](pictures/football_oracle.png)
 
 **Будете ли вы верить предсказаниям?**
 
@@ -46,16 +46,16 @@ $$ p_1 = P(\xi=x_1), p2 = P(\xi=x_2), ..., \sum_i p_i = 1, p_i \geq 0$$
 $$ p(x): F_{\xi} (x) = \int_{-\inf|^x p(z)\delta z$$ 
 удобна тем, что 
 $$ P(a \geq \xi \geq b) = \int_a^b p(x)\delta x$$
-![random_value.png](random_value.png)
+![random_value.png](pictures/random_value.png)
 
 **Связь плотности и вероятности** 
-![random_value_2.png](random_value_2.png)
+![random_value_2.png](pictures/random_value_2.png)
 
 ### Примеры распределений из жизни: сбербанк 
-![example_sber_trans.png](example_sber_trans.png)
+![example_sber_trans.png](pictures/example_sber_trans.png)
 
 ### Примеры распределений из жизни: тикетлэнд
-![example_ticketland.png](example_ticketland.png)
+![example_ticketland.png](pictures/example_ticketland.png)
 
 Пусть с.в. имеет плотность $p(x)
 
@@ -69,7 +69,7 @@ $$ P(a \geq \xi \geq b) = \int_a^b p(x)\delta x$$
 **Условная плотность** - $p(x|y) = \frac{p(x, y}{p(y)}$
 
 
-![marg_or_obus.png](marg_or_obus.png)
+![marg_or_obus.png](pictures/marg_or_obus.png)
 Использовать первый вариант (маргинализация), когда знаем $y$
 
 Использовать второй вариант (обуславливание), когда не знаем $y$
@@ -103,7 +103,7 @@ $$ p(x_1, ... x_n) = p(x_1 | x_2, ..., x_n) p(x_2 |x_3, ..., x_n) ... p(x_{n-1}|
 ## Оценка Maximum Likelihood Estimation (MLE | ММП)
 Если у нас есть какая-то выборка, которая состояит из независимых одинаковое распределённые величины и 
 мы знаем, что они распределены с помощью какой-то вероятенсти $\teta$ 
-![mle.png](mle.png)
+![mle.png](pictures/mle.png)
 
 ## Ковариация и корреляция 
-![corr.png](corr.png)
+![corr.png](pictures/corr.png)

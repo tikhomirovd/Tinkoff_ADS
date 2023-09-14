@@ -33,7 +33,7 @@ $$X_{train} = \{x_1, ..., x_m\} \subseteq X$$
 - Можно ли эффективно описать объекты\пространство?
 
 **Часто нет понимания, насколько хорошо решается задача**
-![unsupervised_learning.png](unsupervised_learning.png)
+![unsupervised_learning.png](pictures/unsupervised_learning.png)
 
 ## Другие виды обучения
 
@@ -42,7 +42,7 @@ $$X_{train} = \{x_1, ..., x_m\} \subseteq X$$
 
 $$X_{train} = \{(x_1, y_1), ... (x_k, y_k), x_{k+1}, ..., x_m \}$$
 Если заранее известна контрольная выборка x_1^', ... x_q^', то это трансдуктивное обучение 
-![semi_supervised_learning.png](semi_supervised_learning.png)
+![semi_supervised_learning.png](pictures/semi_supervised_learning.png)
 
 ### Привилегированное обучение
 Learning Using Privileged Information
@@ -50,7 +50,7 @@ $$X_{train} = \{(x_1, \tilde x_1, y_1), (x_m, \tilde x_m, y_m)\}$$
 $$X_{test} = \{x_1^', ..., x_k^'\} $$
 
 Только на обучении есть дополнительные признаки
-![privileged_information.png](privileged_information.png)
+![privileged_information.png](pictures/privileged_information.png)
 
 ### Обучение с подкреплением
 **Reinforcement Learning** - обучение агента, который взаимодействует 
@@ -82,7 +82,7 @@ $$X_{test} = \{x_1^', ..., x_k^'\} $$
 **Representation Learning** - оптимальное представление объектов, в частности, выучивание признаков
 (Feature Learning) - автоматическое получение хороших признаков из сырых данных, обучение многообразий (Manifold Learning)m
 матричные и тензорные разложения и т.п.
-![representation_learning.png](representation_learning.png)
+![representation_learning.png](pictures/representation_learning.png)
 
 ### Обучение глубоких сетей
 **Deep Learning** – решение задач ML с помощью глубоких нейросетей
@@ -90,7 +90,7 @@ $$X_{test} = \{x_1^', ..., x_k^'\} $$
 ### Мета-обучение
 **Meta-Learning** - обучение обучаться (например, подбор оптимальных параметров с помощью машинного обучения)
 
-![meta_learning.png](meta_learning.png)
+![meta_learning.png](pictures/meta_learning.png)
 
 
 ## Сложности в ML

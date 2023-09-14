@@ -11,7 +11,7 @@ Nearest centroid algorithm
 
 
 
-![nearest_centroid.png](nearest_centroid.png)
+![nearest_centroid.png](pictures/nearest_centroid.png)
 Плюсы:
 - Хранить только центроиды (их можно адаптивно менять)
 - Понятие центроида можно менять ("Средний объект")
@@ -48,7 +48,7 @@ a = model.predict(X2)
 ## Решение модельной задачи
 При разном числе соседей 
 
-![solved_model_task.png](solved_model_task.png)
+![solved_model_task.png](pictures/solved_model_task.png)
 
 При большом k почти плавная прямая, при маленьком k строго делят
 
@@ -74,7 +74,7 @@ p = model.predict_proba(X2)[:, 1]
 
 ### Метод ближайшего соседа в регрессии
 Обобщается на регрессию 
-![k_regression.png](k_regression.png)
+![k_regression.png](pictures/k_regression.png)
 
 
 ### Подбор гипермараметров 
@@ -104,7 +104,7 @@ train_errors, test_errors = validation_curve(model,
 ```
 
 ## Проблема классического kNN
-![weiths_knn.png](weiths_knn.png)
+![weiths_knn.png](pictures/weiths_knn.png)
 
 ### Весовые обобщения kNN
 - Классика $mode(y_i | x_i \in N(x)) = argmax \sum_{t=1}^k I\[y(x_t) = a\]$
@@ -116,7 +116,7 @@ train_errors, test_errors = validation_curve(model,
 
 Главное преимущество – богатое пространство вероятности в задачах классификации 
 
-![weights_schemes.png](weights_schemes.png)
+![weights_schemes.png](pictures/weights_schemes.png)
 
 1. При $\delta = 0$ все объекты имеют вес 1. 
 2. Ближайший объект 1, потом 1\2, потом 1\4 и так далее. Дельта для контроля
@@ -124,22 +124,22 @@ train_errors, test_errors = validation_curve(model,
 
 
 ### Что такое ядро?
-- Прямоугольное / tophat $K(z) = \frac{1}{2} I\[|z| \leq1\]
+- Прямоугольное / tophat $K(z) = \frac{1}{2} I\[|z| \leq1\]$
 
 ### Весовые обобщения kNN
-![weight_generalisation.png](weight_generalisation.png)
+![weight_generalisation.png](pictures/weight_generalisation.png)
 1. Если веса разные, то получается белая разделяющая поверхность ровная
 2. Если небольшие отличия в весах, то видим искревление и улучшение алгоритма 
 3. Если ещё более агрессивную, то на картинке видно что почти повторяет идеальный контур
 
 ### Весовые обобщения в регрессии
-$$ \frac{\sum^k_{t=1} w_t y (x_y}{\sum^k_{t=1} w_t}$$
+$$ \frac{\sum^{k}_{t=1} w_t y (x_y)}{\sum^{k}_{t=1} w_t}$$
 
 ## Регрессия Надарая-Ватсона
-![reg_NW.png](reg_NW.png)  
+![reg_NW.png](pictures/reg_NW.png)  
 
 
-![reg_NW2.png](reg_NW2.png)
+![reg_NW2.png](pictures/reg_NW2.png)
 Для одного и того же $x$ может быть два разных $y$. 
 
 Ширина ядра отличный параметр, чтобы регулировать плавность этой функции. 
@@ -152,12 +152,12 @@ $$ \frac{\sum^k_{t=1} w_t y (x_y}{\sum^k_{t=1} w_t}$$
 
 
 **Смысл:** Ответ алгоритма $\rightarrow$ решение оптимизационной задачи 
-$\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
+$\rightarrow \sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
 
 ## Приложения регрессии Надарая-Ватсона
 1. Сглаживание сигналов
 2. "Многомерные" усреднения
-![pril_NW.png](pril_NW.png)
+![pril_NW.png](pictures/pril_NW.png)
 
 ## Метрики
 Расстояние (метрика) на $X$ -ф функция $\ro (x, z): X \times X \rightarrow \mathbb(R)$
@@ -177,4 +177,44 @@ $\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
 - Расстояние Даккара 
 
 $$(|x_1 - z_1|^p + |x_2 = z_2|^p)^{\frac{1}{p}}$$
-![metrics_l.png](metrics_l.png)
+![metrics_l.png](pictures/metrics_l.png)
+
+### Расстояние Махаланобиса
+Расстание Махланобиса параметрическая. Соответственно мы можем настривать коэффициент $\sigma$ 
+
+![mahalanobis.png](pictures/mahalanobis.png)
+
+![mahalonobis_2.png](pictures/mahalonobis_2.png)
+
+### Ещё метрики
+![more_metrics.png](pictures/more_metrics.png)
+
+## Функции сходства
+Если работать с нормированными векторами, достаточно рассматривать скалярное произведение 
+![more_more_metrics.png](pictures/more_more_metrics.png)
+
+
+## Проблема выбора метрики
+- Зависимость от масштаба
+  - Нормировка признаков
+  - Однородные признаки
+  - Смесь метрик
+- Можно выбирать не метрику, а близость
+  - Косинусная мера сходства
+- Часто выбор функции расстояния, как ни странно довольно прост...
+
+## Метрики на временныз рядах
+- Как ввести расстояние? 
+- Ряды могут быть разной длины
+- Как оценить похожесть? 
+
+![time_series_euqlid.png](pictures/time_series_euqlid.png)
+
+## Рсстояние Левенштейна
+Расстояние между строками, вводим элементарные операции правки:
+- Вставить букву
+- Удалить букву
+- Заменить букву
+
+Расстояние - минимальное число операций, с помощью которых из одной строки можно получить другую
+
