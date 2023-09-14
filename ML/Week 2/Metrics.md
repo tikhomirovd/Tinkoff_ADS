@@ -185,7 +185,7 @@ $\rightarrow \sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a$
 Примеры:
 
 - Минковского $L_p$
-    - Евклидова $L_2$ $\sqrt{\sum_{i=1}^n (x_i - z_i)^2}$
+    - Евклидова $L_2$ $\sqrt{ \sum_{i=1}^{n} (x_i - z_i)^2}$
     - Манхэттэнская
 - Махаланобиса
 - Canberra distance
