@@ -23,10 +23,12 @@ Nearest centroid algorithm
 
 
 ### Минутка кода
-> from sklearn.neighbors.nearest_centroid import NearestCentroid
-> model = NearestCentroid(metric='euclidean')
-> model.fix(X, y)
-> a = model.predict(X2)
+```python
+from sklearn.neighbors.nearest_centroid import NearestCentroid
+model = NearestCentroid(metric='euclidean')
+model.fix(X, y)
+a = model.predict(X2)
+```
 
 
 ## Подход, основанный на близости
@@ -108,3 +110,46 @@ train_errors, test_errors = validation_curve(model,
 - Классика $mode(y_i | x_i \in N(x)) = argmax \sum_{t=1}^k I\[y(x_t) = a\]$
 - Обобщение $argmax \sum_{t=1}^k w_t I\[y(x_t)) =a \]$
 - Разные весовые схемы $w_1 \geq w_2 \geq ... \geq w_k > 0$
+
+### Весовые схемы
+Часто веса лучше нормировать, чтобы сумма была равна 1
+
+Главное преимущество – богатое пространство вероятности в задачах классификации 
+
+![weights_schemes.png](weights_schemes.png)
+
+1. При $\delta = 0$ все объекты имеют вес 1. 
+2. Ближайший объект 1, потом 1\2, потом 1\4 и так далее. Дельта для контроля
+3. Веса это ядро от расстояния. Чем больше расстояние, тем меньше вес. 
+
+
+### Что такое ядро?
+- Прямоугольное / tophat $K(z) = \frac{1}{2} I\[|z| \leq1\]
+
+### Весовые обобщения kNN
+![weight_generalisation.png](weight_generalisation.png)
+1. Если веса разные, то получается белая разделяющая поверхность ровная
+2. Если небольшие отличия в весах, то видим искревление и улучшение алгоритма 
+3. Если ещё более агрессивную, то на картинке видно что почти повторяет идеальный контур
+
+### Весовые обобщения в регрессии
+$$ \frac{\sum^k_{t=1} w_t y (x_y}{\sum^k_{t=1} w_t}$$
+
+## Регрессия Надарая-Ватсона
+![reg_NW.png](reg_NW.png)  
+
+
+![reg_NW2.png](reg_NW2.png)
+Для одного и того же $x$ может быть два разных $y$. 
+
+Ширина ядра отличный параметр, чтобы регулировать плавность этой функции. 
+
+Главный недостаток такой регрессии: **не экстраполируется**
+
+На концах функция становится почти константой, так что надо это учитывать.
+
+> Часто называют сглаживанием Надарая-Ватсона
+
+
+**Смысл:** Ответ алгоритма $\rightarrow$ решение оптимизационной задачи 
+$\rightarrow $\sum_{i=1}^m w_i(x) (a - y(x_i))^2) \ rightarrow min_a
