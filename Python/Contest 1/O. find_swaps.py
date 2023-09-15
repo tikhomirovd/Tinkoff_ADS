@@ -1,22 +1,28 @@
+def find_swaps(n: int, arr: list) -> tuple[int, int]:
+    a, b = -1, -1
+    suma = 0
+    for i, elem in enumerate(arr):
+        if elem % 2 == 0:
+            if (i + 1) % 2 != 0:
+                a = i + 1
+                suma += 1
+
+        if elem % 2 != 0:
+            if (i + 1) % 2 == 0:
+                b = i + 1
+                suma += 1
+
+    if suma == 2 and a != -1 and b != -1:
+        return a, b
+
+    if suma == 0 and n >= 3:
+        return 1, 3
+
+    else:
+        return -1, -1
+
+
 n = int(input())
 arr = list(map(int, input().split()))
 
-
-def find_swap(arr):
-    for i in range(len(arr)):
-        if i % 2 == 0 and arr[i] % 2 == 1:  # нечетная позиция, четное число
-            for j in range(1, len(arr), 2):  # ищем нечетное число на четной позиции
-                if arr[j] % 2 == 0:
-                    return i + 1, j + 1
-        elif i % 2 == 1 and arr[i] % 2 == 0:  # четная позиция, нечетное число
-            for j in range(0, len(arr), 2):  # ищем четное число на нечетной позиции
-                if arr[j] % 2 == 1:
-                    return i + 1, j + 1
-    return -1, -1
-
-
-i, j = find_swap(arr)
-if i == -1:
-    print("-1 -1")
-else:
-    print(i, j)
+print(*find_swaps(n, arr))
