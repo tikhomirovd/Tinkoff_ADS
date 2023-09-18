@@ -123,12 +123,12 @@
            первичный ключ: **game_rk**
     3. Клиенты зарегистрированные в 2023, которые подали заявку на завершённую игру
         1. Для получения используются: **application_game_finished**, **account**
-        2. Связь сущностей: account.account_rk -> application_game_finished.account_rk
-        3. Фильтрации: account.registration_ddmm.year = 2023
-        4. Новая сущность: client_2023_game_finished
-           game_rk из application_game_finished.game_rk, client_rk из account.client_rk
-           первичный ключ: client_rk
-3. Группировка по client_rk, среднее по game_rk
+        2. Связь сущностей: **account.account_rk -> application_game_finished.account_rk**
+        3. Фильтрации: **account.registration_ddmm.year = 2023**
+        4. Новая сущность: **client_2023_game_finished**
+           атрибуты: **game_rk из application_game_finished.game_rk, client_rk из account.client_rk**
+           первичный ключ: **client_rk**
+3. Группировка в **client_2023_game_finished** по client_rk, среднее по game_rk
 
 ### Задача #3
 
@@ -144,22 +144,19 @@
 
 #### Решение
 
-1."""
+1. "Локации партнёра Х", "Квесты на локации партнёра Х", "Завершённые игры на локации партнёра Х"
 2. Получение новых сущностей
-    1. Завершённые Игры
-        1. Для получения используются: game
-        2. Связь сущностей: -
-        3. Фильтрации: game.finish_flg = 1
-        4. Новая сущность: game_finished,
-           атрибуты: game_rk из game.game_rk
-           первичный ключ: game_rk
-    2. Заявки на завершённую игру
-        1. Для получения используются: game_finished, application
-        2. Связь сущностей: game_finished.game_rk -> application.game_rk
-        3. Фильтрации: -
-        4. Новая сущность: application_game_finished,
-           атрибуты: game_rk из game_finished.game_rk
-           первичный ключ: game_rk
+    1. Локации партнера Х
+        1. Для получения используются: partner, location
+        2. Связь сущностей: location.partner_rk -> partner.partner_rk
+        3. Фильтрации: partner.partner_rk = X
+        4. Новая сущность legend_of_partner_x, атрибуты: legend_rk из legend.legend_rk. Первичный ключ - legend_rk
+    2. Квесты партнера Х
+        1. Для получения используются: quest, legend_of_partner_x
+        2. Связь сущностей: quest.legend_rk -> legend_of_partner_x.legend_rk
+        3. Фильтрации: не нужны
+        4. Новая сущность quest_of_partner_x, атрибуты: quest_rk из quest.quest_rk. Первичный ключ - quest_rk
+
     3. Аккаунты, подавшие заявки на завершённую игру
         1. Для получения используются: game_finished, application
         2. Связь сущностей: game_finished.game_rk -> application.game_rk
