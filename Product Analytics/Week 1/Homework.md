@@ -162,12 +162,12 @@
            Первичный ключ - **quest_rk**
     3. Игры на локациях партнёра Х
         1. Для получения используются: **quest_of_partner_x, game**
-        2. Связь сущностей: game.quest_rk -> quest_of_partner_x.quest_rk
+        2. Связь сущностей: **game.quest_rk -> quest_of_partner_x.quest_rk**
         3. Фильтрации: -
         4. Новая сущность: **games_partner_x**,
-           атрибуты: game_rk из game_finished.game_rk, location_rk из quest_of_partner_x.location_rk, game_flag из
-           game.game_flag
-           первичный ключ: game_rk
+           атрибуты: **game_rk из game_finished.game_rk, location_rk из quest_of_partner_x.location_rk, game_flag из**
+           **game.game_flag**
+           первичный ключ: **game_rk**
     
 3. Группировка в **games_partner_x** по location_rk, среднее по game_flag
 
