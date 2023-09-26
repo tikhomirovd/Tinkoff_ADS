@@ -2,8 +2,7 @@ def print_minesweeper_field(n: int, m: int, mines: list):
     field = [[0 for _ in range(m)] for _ in range(n)]
 
     # Размещение мин на поле
-    for mine in mines:
-        x, y = mine
+    for x, y in mines:
         field[x - 1][y - 1] = '*'
 
     for i in range(n):
